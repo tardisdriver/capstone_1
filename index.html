@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dinner and a Beer</title>
+	  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+          <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+	<main>
+		<header>
+			<h1>Dinner and a Beer</h1>
+		</header>
+
+		<form id="choice-form">
+			<h2>Choose your main course to get a recipe:</h2>
+			<button class="js-button" value="steak">Steak</button>
+			<button class="js-button" value="chicken">Chicken</button>
+			<button class="js-button" value="fish">Fish</button>
+			<button class="js-button" value="salad">Salad</button>
+			<button class="js-button" value="pizza">Pizza</button>
+			<button class ="js-button" value="vegetarian">Vegetarian</button>
+		</form>
+			<h2>Recipe:</h2>
+			<div class="js-results">
+			  <img class = "js-recipe-image" src=""><br />
+			  <a class="js-recipe-url" href=""><span class='js-recipe-name'></span></a>
+			</div>
+			
+			
+			<!--<button id="js-recipe-retry">Try a different one?</button>-->
+
+			<h2>Pair This With:</h2>
+			<h3 class ="js-beer-type"></h3>
+			<p>Such as:</p>
+			<h3><span class="js-beer-name"></span></h3>
+			<img class="js-beer-img" src="">
+			<p><span class="js-beer-descr"></span></p>
+			<!--<button>Try a different one?</button>-->
+
+
+	</main>
+    <script src="script.js"></script>
+</body>
+
+</html>
