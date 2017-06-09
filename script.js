@@ -1,16 +1,20 @@
+
+
+
+
+
 //define variables for API URLs
 var RECIPE_SEARCH_URL ='https://api.edamam.com/search';
 var BEER_SEARCH_URL = 'http://api.brewerydb.com/v2/search';
 
 //define variable for beer pairing
 var beer_pairing = {
-  steak : "Ale",
-  chicken : "Lager",
-  barbeque: "Porter",
-  fish: "Lager",
+  'steak dinner' : "Ale",
+  'chicken dinner' : "Lager",
+  'fish meal': "Lager",
   pizza: "Ale",
-  salad: "Pilsner",
-  vegetarian: "Wheat beer"
+  'salad dinner': "Pilsner",
+  'vegetarian dinner': "Wheat beer"
 }
 
 //function to generate a random number to feed into getDataFromAPI, so that API can choose a random recipe
@@ -68,6 +72,9 @@ function getDataFromBreweryDBAPI(searchTerm, callback) {
       format: "jsonp",
       type: "beer"
     },
+    headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+       },
     type: "GET",
       success: function(data){
         callback(searchTerm, data);
@@ -75,10 +82,6 @@ function getDataFromBreweryDBAPI(searchTerm, callback) {
       };
       $.ajax(settings);
 }
-
-
-
-
 
 function handleSubmit() {
 	$('.js-button').on("click", function(e){

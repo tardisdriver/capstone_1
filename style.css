@@ -1,0 +1,11 @@
+.beer-stuff {
+	display: inline-block;
+	float: right;
+	margin-right: 20%;
+	margin-top: 0;
+}
+
+.food-stuff {
+	display: inline-block;
+	float: left;
+}
