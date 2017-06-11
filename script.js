@@ -1,23 +1,19 @@
-
-
-
-
-
 //define variables for API URLs
 var RECIPE_SEARCH_URL ='https://api.edamam.com/search';
-var BEER_SEARCH_URL = 'http://api.brewerydb.com/v2/search';
+var BEER_SEARCH_URL = 'http://vehrenkamp.com/api/search';
 
 //define variable for beer pairing
 var beer_pairing = {
-  'steak dinner' : "Ale",
+  'beef steak dinner' : "Ale",
   'chicken dinner' : "Lager",
   'fish meal': "Lager",
+  'pork dinner': "Bock Beer",
   pizza: "Ale",
   'salad dinner': "Pilsner",
   'vegetarian dinner': "Wheat beer"
 }
 
-//function to generate a random number to feed into getDataFromAPI, so that API can choose a random recipe
+//function to generate a random number to feed into getDataFromAPI, so that API can choose a random recipe/beer
 function getRandomInt(min,max) {
   min = Math.ceil(min);
   max = Math.floor(max);
@@ -31,17 +27,24 @@ function renderRecipe(data) {
 }
 
 function renderBeer(searchTerm, data) {
-	var randomBeer = getRandomInt(0,49);
-	$(".js-beer-type").text(beer_pairing[searchTerm]);
-	$(".js-beer-name").text(data.data[randomBeer].name);
-	$(".js-beer-img").attr("src", data.data[randomBeer].labels.medium);
-	$(".js-beer-descr").text(data.data[randomBeer].description);
-	
+	var randomBeer = getRandomInt(0,40);
+		console.log(randomBeer);
+		$(".js-beer-type").text(beer_pairing[searchTerm]); /* style */
+		console.log(beer_pairing[searchTerm]);
+		$(".js-beer-name").text(data.data[randomBeer].name);  /* name */
+		if (data.data[randomBeer].labels != undefined && data.data[randomBeer].description != null) {
+		console.log('image and descr found!');
+			$(".js-beer-img").attr("src", data.data[randomBeer].labels.medium); /*image */
+			$(".js-beer-descr").text(data.data[randomBeer].description);	/* description */
+			} else {
+				$(".js-beer-img").attr("src", "images/stock-beer3.jpg")
+				$(".js-beer-descr").text("");
+	}	
 }
 
 //define items to pull from API
 function getDataFromEdamamAPI(searchTerm, callback) {
-  var start = getRandomInt(1, 30);
+  var start = getRandomInt(1, 3);
   var end = start +1;
   var settings = {
     url: RECIPE_SEARCH_URL,
@@ -62,19 +65,15 @@ function getDataFromEdamamAPI(searchTerm, callback) {
 }
 
 function getDataFromBreweryDBAPI(searchTerm, callback) {
-  var random_page = getRandomInt(1,4);
+  var random_page = getRandomInt(1,2);
   var settings = {
     url: BEER_SEARCH_URL,
     data: {
       key: '3f82ffb77634f481ff4376a346fc7cd9',
       q: beer_pairing[searchTerm],
       p: random_page,
-      format: "jsonp",
       type: "beer"
     },
-    headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-       },
     type: "GET",
       success: function(data){
         callback(searchTerm, data);
