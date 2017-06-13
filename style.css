@@ -1,8 +1,19 @@
+* {
+	box-sizing: border-box;
+	margin:0;
+}
+
+html {
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
 body {
 	background: url('images/mobile-background.jpg') no-repeat;
 	background-color: #070606;
 	background-width:100%;
-
+	font-family: 'Shadows Into Light', cursive;
+	color: white;
 }
 
 h2 {
@@ -15,35 +26,23 @@ h3 {
 
 .beer-stuff {
 	display: inline-block;
-	width: 40%;
+	width: 28%;
 	float: right;
-	margin-right: 15%;
-	color: white;
-	font-family: 'Shadows Into Light', cursive;
+	margin-right: 15%;	
 }
 
 .food-stuff {
 	display: inline-block;
-	width: 40%;
-	margin-left: 5%;
+	width: 28%;
+	margin-left: 10%;
 	float: left;
-	color: white;
-	font-family: 'Shadows Into Light', cursive;
 }
 
-.pointy-hand {
-	display: inline-block;
-	position: fixed;
-	margin-top: 20%;
-	margin-left: 10%;
-}
 
 #choice-form {
 	width: 100%;
 	margin-top: 10%;
-	margin-left:5%;
-	color: white;
-	font-family: 'Shadows Into Light', cursive;
+	margin-left:10%;	
 }
 
 .btn {
@@ -79,7 +78,7 @@ a:link {
 	body {
 	background: url('images/background.png') no-repeat;
 	background-size: cover;
-	background-color: #070606;
+	background-color: #070606;22
 	}
 
 	.btn:hover {
@@ -91,9 +90,12 @@ a:link {
 	width: 300px;
 	}
 
-	.food-stuff img {
-	margin-top: 2%;
-	width: 300px;
+	.beer-stuff img {
+	width: 175px;
+	}
+
+	.beer-descr {
+		font-size: 1.15em;
 	}
 
 	h2 {
@@ -107,7 +109,6 @@ a:link {
 
 	a:link {
 	color: goldenrod;
-	font-size: 1.50em;
+	font-size: 1.45em;
 	}
-	
 }

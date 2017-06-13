@@ -27,24 +27,22 @@ function renderRecipe(data) {
 }
 
 function renderBeer(searchTerm, data) {
-	var randomBeer = getRandomInt(0,40);
-		console.log(randomBeer);
+	var beer_list = data.data.filter(function(beer) {
+		if (beer.description && beer.labels) {
+			return beer;
+		}
+	});
+		var randomBeer = getRandomInt(0,beer_list.length);
 		$(".js-beer-type").text(beer_pairing[searchTerm]); /* style */
-		console.log(beer_pairing[searchTerm]);
-		$(".js-beer-name").text(data.data[randomBeer].name);  /* name */
-		if (data.data[randomBeer].labels != undefined && data.data[randomBeer].description != null) {
-		console.log('image and descr found!');
-			$(".js-beer-img").attr("src", data.data[randomBeer].labels.medium); /*image */
-			$(".js-beer-descr").text(data.data[randomBeer].description);	/* description */
-			} else {
-				$(".js-beer-img").attr("src", "images/stock-beer3.jpg")
-				$(".js-beer-descr").text("");
+		$(".js-beer-name").text(beer_list[randomBeer].name);  /* name */
+		$(".js-beer-img").attr("src", beer_list[randomBeer].labels.medium); /*image */
+		$(".js-beer-descr").text(beer_list[randomBeer].description);	/* description */
 	}	
-}
+
 
 //define items to pull from API
 function getDataFromEdamamAPI(searchTerm, callback) {
-  var start = getRandomInt(1, 3);
+  var start = getRandomInt(1, 4);
   var end = start +1;
   var settings = {
     url: RECIPE_SEARCH_URL,
@@ -65,7 +63,7 @@ function getDataFromEdamamAPI(searchTerm, callback) {
 }
 
 function getDataFromBreweryDBAPI(searchTerm, callback) {
-  var random_page = getRandomInt(1,2);
+  var random_page = getRandomInt(1,3);
   var settings = {
     url: BEER_SEARCH_URL,
     data: {
@@ -90,8 +88,14 @@ function handleSubmit() {
     	getDataFromEdamamAPI(food_type, renderRecipe); 
 	});
 }
+
+$(document).ready(function () {
+  getDataFromEdamamAPI("pizza", renderRecipe);
+  getDataFromBreweryDBAPI("pizza", renderBeer);
+  $(handleSubmit);
+});
   
-$(handleSubmit);
+
 
 
 
