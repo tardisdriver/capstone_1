@@ -1,43 +1,63 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>Dinner and a Beer</title>
-	  <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
-  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-          <link href="style.css" rel="stylesheet" type="text/css" />
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<link href="style.css" rel="stylesheet" type="text/css" />
 </head>
+
 <body>
 	<main>
-
+		<div id="modal">
+			<h2>Dinner and a Beer</h2>
+			<p>Ever have trouble deciding what's for dinner and also figuring out what new beer to try? Dinner and a Beer will generate
+				a random recipe based on the entree type you choose, and will also suggest a beer in the style of a beer that accompanies
+				your dish best.</p>
+			<button id="close" type="button">Close</button>
+		</div>
 		<form id="choice-form">
 			<h2>Choose your main course to get a recipe:</h2>
 			<button class="js-button btn" value="beef steak dinner">Steak</button>
 			<button class="js-button btn" value="chicken dinner">Chicken</button>
 			<button class="js-button btn" value="fish meal">Fish</button>
-			<button class="js-button btn" value = "pork dinner">Pork</button>
+			<button class="js-button btn" value="pork dinner">Pork</button>
 			<button class="js-button btn" value="salad dinner">Salad</button>
 			<button class="js-button btn" value="pizza">Pizza</button>
 			<button class="js-button btn" value="vegetarian dinner">Vegetarian</button>
 		</form>
-			
-			<div class="js-results food-stuff">
-				<h2>Recipe:</h2>
-			  <img class = "js-recipe-image" src=""><br />
-			  <a class="js-recipe-url" href=""><span class="js-recipe-name"></span></a>
-			</div>
 
-			<div class="beer-stuff">
-				<h2>Pair This With: <span class ="js-beer-type"></span></h2>
-				<h3>Such as: <span class="js-beer-name"></span></h3>
-				<img class="js-beer-img" src="">
-				<p><span class="js-beer-descr beer-descr"></span></p>
-			</div>
+		<div class="js-results food-stuff">
+			<h2>Recipe:</h2>
+			<img class="js-recipe-image" src="">
+			<br />
+			<a class="js-recipe-url" href="">
+				<span class="js-recipe-name"></span>
+			</a>
+		</div>
+
+		<div class="beer-stuff">
+			<h2>Pair This With:
+				<span class="js-beer-type"></span>
+			</h2>
+			<h3>Such as:
+				<span class="js-beer-name"></span>
+			</h3>
+			<img class="js-beer-img" src="">
+			<p>
+				<span class="js-beer-descr beer-descr"></span>
+			</p>
+		</div>
 
 
 	</main>
-    <script src="script.js"></script>
+	<script src="script.js"></script>
+	<script type="text/javascript" src="ui.js"></script>
 </body>
+
 
 </html>

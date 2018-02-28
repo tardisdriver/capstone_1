@@ -24,6 +24,43 @@ h3 {
 	font-size: 0.75em;
 }
 
+.hidden {
+	display: none;
+}
+
+#modal {
+	width: 70%;
+	height: 55%;
+	margin-top: 100px;
+	margin-left: 15%;
+	position: fixed;
+	z-index: 3;
+	background-color: white;
+	color: black;
+  }
+  
+  #modal h2 {
+	background-color: grey;
+	color: white;
+	margin-top: 0;
+	height: 50px;
+	padding: 10px;
+  }
+  
+  #modal p {
+	text-align: justify;
+	padding: 40px 35px 10px 35px;
+  }
+  
+  #close {
+	display: block;
+	margin-left: 75%;
+	margin-top: 15%;
+	padding: 8px;
+	border: 1px solid gray;
+	background-color: white;
+	color: grey;
+  }
 .beer-stuff {
 	display: inline-block;
 	width: 28%;
@@ -111,4 +148,22 @@ a:link {
 	color: goldenrod;
 	font-size: 1.45em;
 	}
+	#modal {
+		width: 60%;
+		height: 30%;
+		margin-top: 100px;
+	  }
+	
+	  #modal h2 {
+		margin-top: 0;
+		height: 50px;
+		padding: 10px;
+	  }
+	
+	  #modal p {
+		padding: 40px 35px 10px 35px;
+	  }
+	  #close { 
+		margin-top: 20px;
+	  }
 }
