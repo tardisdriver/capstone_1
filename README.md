@@ -7,6 +7,9 @@ This app pulls recipes from Edamam.com and pairs them with beers from BreweryDB.
 
 First choose your protein/main course using the buttons on the chalkboard.  If you want a different selection, you can hit any of the buttons, or the same button again to get a different result.
 
+## Live Demo
+https://dinner-and-a-beer.netlify.com/
+
 ## Technology Used:
 
 *HTML
