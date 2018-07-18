@@ -1,7 +1,7 @@
 //define variables for API URLs
 var RECIPE_SEARCH_URL = "https://api.edamam.com/search";
-//var BEER_SEARCH_URL = 'http://vehrenkamp.com/api/search';
-var BEER_SEARCH_URL = "https://api.brewerydb.com/v2/search";
+var BEER_SEARCH_URL =
+  "https://cors-anywhere-ts.herokuapp.com/https://api.brewerydb.com/v2/search";
 
 //define variable for beer pairing
 var beer_pairing = {
@@ -73,6 +73,7 @@ function getDataFromBreweryDBAPI(searchTerm, callback) {
       type: "beer"
     },
     type: "GET",
+
     success: function(data) {
       callback(searchTerm, data);
     }
